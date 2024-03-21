@@ -1,5 +1,6 @@
 import TimeEntryCard from './components/TimeEntryCard.jsx';
 import Footer from './components/Footer/Footer.jsx';
+import './App.css';
 
 const Header = () => {
   return (
@@ -14,11 +15,11 @@ const Header = () => {
 
 function App() {
   return (
-    <>
+    <div className="app-container">
       <Header />
       <TimeEntryCard />
       <Footer />
-    </>
+    </div>
   )
 }
 
