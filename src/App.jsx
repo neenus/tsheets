@@ -1,4 +1,5 @@
 import TimeEntryCard from './components/TimeEntryCard.jsx';
+import Footer from './components/Footer/Footer.jsx';
 
 const Header = () => {
   return (
@@ -16,6 +17,7 @@ function App() {
     <>
       <Header />
       <TimeEntryCard />
+      <Footer />
     </>
   )
 }
