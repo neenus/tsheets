@@ -70,39 +70,42 @@ const TimeEntryCard = () => {
     <div className="container mx-auto px-4 py-8">
       {timeRows.map((row, index) => (
         <div key={index} className="mb-4 border rounded p-4">
-          <Stack direction="row" spacing={2}>
-            <TextField
-              label="Date"
-              InputLabelProps={{ shrink: true }}
-              type="date"
-              value={row.date}
-              onChange={(e) => handleInputChange(e.target.value, index, 'date')}
-            />
-            <TextField
-              label="Start Time"
-              InputLabelProps={{ shrink: true }}
-              type="time"
-              value={row.startTime}
-              onChange={(e) => handleInputChange(e.target.value, index, 'startTime')}
-            />
-            <TextField
-              label="End Time"
-              type="time"
-              InputLabelProps={{ shrink: true }}
-              value={row.endTime}
-              onChange={(e) => handleInputChange(e.target.value, index, 'endTime')}
-            />
-            <TextField
-              label="Break (minutes)"
-              type="number"
-              InputLabelProps={{ shrink: true }}
-              value={row.breakTime}
-              onChange={(e) => handleInputChange(e.target.value, index, 'breakTime')}
-            />
+          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} alignItems="center">
+            <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} flexGrow={1} width={{ xs: '100%', sm: 'auto' }}>
+              <TextField
+                label="Date"
+                InputLabelProps={{ shrink: true }}
+                type="date"
+                value={row.date}
+                onChange={(e) => handleInputChange(e.target.value, index, 'date')}
+              />
+              <TextField
+                label="Start Time"
+                InputLabelProps={{ shrink: true }}
+                type="time"
+                value={row.startTime}
+                onChange={(e) => handleInputChange(e.target.value, index, 'startTime')}
+              />
+              <TextField
+                label="End Time"
+                type="time"
+                InputLabelProps={{ shrink: true }}
+                value={row.endTime}
+                onChange={(e) => handleInputChange(e.target.value, index, 'endTime')}
+              />
+              <TextField
+                label="Break (minutes)"
+                type="number"
+                InputLabelProps={{ shrink: true }}
+                value={row.breakTime}
+                onChange={(e) => handleInputChange(e.target.value, index, 'breakTime')}
+              />
+            </Stack>
             <IconButton color="warning" aria-label="delete" size="large" onClick={() => removeRow(index)}>
               <DeleteIcon />
             </IconButton>
           </Stack>
+
         </div>
       ))}
       <button onClick={addRow} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add Entry</button>
