@@ -109,7 +109,7 @@ const TimeEntryCard = () => {
         </div>
       ))}
       <button onClick={addRow} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add Entry</button>
-      <div className="mt-4">
+      <div className="mt-4 mb-10">
         <strong>Total Hours Worked:</strong> {calculateTotalHoursWorked()}
       </div>
     </div>
