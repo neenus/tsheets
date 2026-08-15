@@ -76,14 +76,14 @@ const TimeEntryCard = () => {
             <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} flexGrow={1} width={{ xs: '100%', sm: 'auto' }}>
               <TextField
                 label="Date"
-                InputLabelProps={{ shrink: true }}
+                slotProps={{ inputLabel: { shrink: true } }}
                 type="date"
                 value={row.date}
                 onChange={(e) => handleInputChange(e.target.value, index, 'date')}
               />
               <TextField
                 label="Start Time"
-                InputLabelProps={{ shrink: true }}
+                slotProps={{ inputLabel: { shrink: true } }}
                 type="time"
                 value={row.startTime}
                 onChange={(e) => handleInputChange(e.target.value, index, 'startTime')}
@@ -91,14 +91,14 @@ const TimeEntryCard = () => {
               <TextField
                 label="End Time"
                 type="time"
-                InputLabelProps={{ shrink: true }}
+                slotProps={{ inputLabel: { shrink: true } }}
                 value={row.endTime}
                 onChange={(e) => handleInputChange(e.target.value, index, 'endTime')}
               />
               <TextField
                 label="Break (minutes)"
                 type="number"
-                InputLabelProps={{ shrink: true }}
+                slotProps={{ inputLabel: { shrink: true } }}
                 value={row.breakTime}
                 onChange={(e) => handleInputChange(e.target.value, index, 'breakTime')}
               />
