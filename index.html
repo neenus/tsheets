@@ -5,9 +5,21 @@
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="description" content="Timesheet calculator" />
-    <meta name="theme-color" content="#f3f4f9" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#10121b" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f3f4f9" />
     <title>TSheets | NR Accounting</title>
+    <script>
+      // Apply the theme before first paint to avoid a flash. Mirrors src/lib/theme.js.
+      (function () {
+        var saved = null;
+        try {
+          saved = localStorage.getItem('tsheets:theme');
+        } catch (e) {}
+        var theme = saved === 'light' || saved === 'dark' ? saved
+          : window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.theme = theme;
+        document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#10121b' : '#f3f4f9';
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

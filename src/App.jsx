@@ -6,12 +6,15 @@ import Footer from './components/Footer.jsx';
 import Header from './components/Header.jsx';
 import PrintView from './components/PrintView.jsx';
 import TotalBar from './components/TotalBar.jsx';
+import { MoonIcon, SunIcon } from './components/icons.jsx';
 import { useSchedule } from './hooks/useSchedule.js';
+import { useTheme } from './hooks/useTheme.js';
 import { createTimesheetPdf, downloadFile, sendByEmail } from './lib/export.js';
 import { buildTimesheet } from './lib/timesheet.js';
 
 function App() {
   const schedule = useSchedule();
+  const { theme, toggleTheme } = useTheme();
   const sheet = buildTimesheet(schedule.entries, schedule.name);
   const [confirmingClear, setConfirmingClear] = useState(false);
   const [busy, setBusy] = useState(false);
@@ -66,6 +69,14 @@ function App() {
     <>
       <div className="flex min-h-dvh flex-col print:hidden">
         <Header>
+          <button
+            type="button"
+            onClick={toggleTheme}
+            aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+            className="grid size-11 place-items-center rounded-full text-muted hover:bg-surface hover:text-ink"
+          >
+            {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
+          </button>
           <button
             type="button"
             onClick={() => setConfirmingClear(true)}

@@ -15,24 +15,25 @@
   --color-danger-soft: #fdecec;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-canvas: #10121b;
-    --color-surface: #1a1d2a;
-    --color-ink: #eceef6;
-    --color-muted: #9a9fb5;
-    --color-line: #2b2f40;
-    --color-accent: #8f8aff;
-    --color-accent-soft: #262747;
-    --color-on-accent: #10121b;
-    --color-danger: #ff8a80;
-    --color-danger-soft: #3a1f22;
-  }
+/* data-theme is set before first paint by the script in index.html, then kept up to date by useTheme */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-canvas: #10121b;
+  --color-surface: #1a1d2a;
+  --color-ink: #eceef6;
+  --color-muted: #9a9fb5;
+  --color-line: #2b2f40;
+  --color-accent: #8f8aff;
+  --color-accent-soft: #262747;
+  --color-on-accent: #10121b;
+  --color-danger: #ff8a80;
+  --color-danger-soft: #3a1f22;
 }
 
 @layer base {
   html {
-    color-scheme: light dark;
+    /* native pickers follow the chosen theme, not the device */
+    color-scheme: light;
     -webkit-tap-highlight-color: transparent;
   }
 
