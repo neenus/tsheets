@@ -1,2 +1,65 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: "Manrope Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --color-canvas: #f3f4f9;
+  --color-surface: #ffffff;
+  --color-ink: #1b1e2c;
+  --color-muted: #666b82;
+  --color-line: #e2e4ee;
+  --color-accent: #4f46e5;
+  --color-accent-soft: #eceafd;
+  --color-on-accent: #ffffff;
+  --color-danger: #c9302c;
+  --color-danger-soft: #fdecec;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-canvas: #10121b;
+    --color-surface: #1a1d2a;
+    --color-ink: #eceef6;
+    --color-muted: #9a9fb5;
+    --color-line: #2b2f40;
+    --color-accent: #8f8aff;
+    --color-accent-soft: #262747;
+    --color-on-accent: #10121b;
+    --color-danger: #ff8a80;
+    --color-danger-soft: #3a1f22;
+  }
+}
+
+@layer base {
+  html {
+    color-scheme: light dark;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-canvas text-ink font-sans antialiased;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent;
+  }
+
+  /* iOS centers the value inside date/time inputs */
+  input::-webkit-date-and-time-value {
+    text-align: left;
+  }
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(-4px);
+  }
+}
+
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+}
